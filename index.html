@@ -9,6 +9,63 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+<!-- Background Music - Duvet by BoA -->
+<audio id="bgMusic" loop preload="auto" style="display: none;">
+  <source src="duvet.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // Auto play music 
+  let musicPlaying = false;
+  const audio = document.getElementById('bgMusic');
+  
+  function enableMusic() {
+    if (!musicPlaying) {
+      audio.play().catch(e => console.log('Autoplay prevented, user interaction needed'));
+      musicPlaying = true;
+      document.removeEventListener('click', enableMusic);
+      document.removeEventListener('touchstart', enableMusic);
+    }
+  }
+  
+  // Coba play otomatis
+  audio.play().catch(() => {
+    // Jika gagal, tunggu user klik
+    document.addEventListener('click', enableMusic);
+    document.addEventListener('touchstart', enableMusic);
+    
+    // Tambah notifikasi kecil
+    const notify = document.createElement('div');
+    notify.textContent = '🎵 Klik di mana saja untuk memutar lagu 🎵';
+    notify.style.cssText = 'position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.7);color:#ffb3c1;padding:8px 16px;border-radius:40px;font-size:12px;z-index:100;pointer-events:none;animation:fadeOut 3s forwards;';
+    document.body.appendChild(notify);
+    setTimeout(() => notify.remove(), 3000);
+  });
+  
+  // Tambah tombol kontrol musik
+  const musicBtn = document.createElement('button');
+  musicBtn.innerHTML = '🔊 Music: Duvet';
+  musicBtn.style.cssText = 'position:fixed;bottom:20px;left:20px;z-index:30;background:rgba(0,0,0,0.5);border:none;color:#ffb3c1;padding:6px 12px;border-radius:30px;font-size:11px;cursor:pointer;backdrop-filter:blur(5px);';
+  musicBtn.onclick = () => {
+    if (audio.paused) {
+      audio.play();
+      musicBtn.innerHTML = '🔊 Music: Duvet';
+    } else {
+      audio.pause();
+      musicBtn.innerHTML = '🔇 Music: Duvet (Paused)';
+    }
+  };
+  document.body.appendChild(musicBtn);
+</script>
+
+<style>
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    70% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+  }
+</style>
+
 <body>
 
 <div class="orb orb-a"></div>
