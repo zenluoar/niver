@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0d0008">
+  <title>Happy Anniversary 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="orb orb-a"></div>
+<div class="orb orb-b"></div>
+<canvas id="canvas3d"></canvas>
+<div id="floatLayer"></div>
+
+<div id="header">
+  <p class="eyebrow">✦ Garden of Love ✦</p>
+  <h1 id="headerTitle"></h1>
+</div>
+
+<p id="plantHint">🌸 Klik rumput<br>tanam bunga 🌸</p>
+
+<div id="ctaWrap">
+  <button id="ctaBtn">💖 Pesan untuk Kamu 💖</button>
+  <p id="ctaHint">💌 klik amplop, foto, atau rumput 💌</p>
+</div>
+
+<div id="hud">
+  <div id="countdown">
+    <div class="cd-unit"><span class="cd-num" id="cd-d">000</span><span class="cd-lbl">Hari</span></div>
+    <span class="cd-sep">:</span>
+    <div class="cd-unit"><span class="cd-num" id="cd-h">00</span><span class="cd-lbl">Jam</span></div>
+    <span class="cd-sep">:</span>
+    <div class="cd-unit"><span class="cd-num" id="cd-m">00</span><span class="cd-lbl">Menit</span></div>
+    <span class="cd-sep">:</span>
+    <div class="cd-unit"><span class="cd-num" id="cd-s">00</span><span class="cd-lbl">Detik</span></div>
+  </div>
+  <div id="controls">
+    <button class="ctrl-btn" id="fireworkBtn">🎆 Kembang Api</button>
+    <button class="ctrl-btn" id="resetBtn">🌿 Reset Taman</button>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="msgModal">
+  <div class="modal-card">
+    <button class="modal-close" id="msgClose">✕</button>
+    <div class="modal-deco">💕</div>
+    <h2 class="modal-title" id="msgTitle"></h2>
+    <p class="modal-sub" id="msgSub"></p>
+    <div class="modal-divider"></div>
+    <div class="modal-body" id="msgBody"></div>
+    <div class="modal-footer">Selamanya Bersamamu ♥</div>
+  </div>
+</div>
+
+<div id="lightbox">
+  <img id="lbImg" src="" alt="">
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="script.js"></script>
+</body>
+</html>
